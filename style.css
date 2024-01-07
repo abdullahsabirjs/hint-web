@@ -1,0 +1,200 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #51fd7c, #e6d6d6, #7eca7e);
+    color: #333; /* Text color */
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Changed for better spacing */
+    background-color: #ffffff;
+    padding: 10px 0;
+}
+
+.navbar a {
+    color: rgb(3, 2, 2);
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.navbar a:hover {
+    background-color: #7eca7e;
+    color: black;
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo img {
+    height: 40px;
+}
+
+.navbar-logo span {
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+/* Collapsible Menu Icon */
+.menu-icon {
+    display: none; /* Hidden by default */
+    cursor: pointer;
+    font-size: 20px;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+}
+
+/* Hamburger Icon (Three Dots) */
+.menu-icon:before {
+    color: #333;
+}
+
+/* Login and Signup Form Styles */
+.login-form, .signup-form {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+
+
+.login-form input, .signup-form input {
+    width: calc(100% - 20px); /* Adjust width to account for padding */
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+
+.login-form button, .signup-form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px; /* Add margin for spacing */
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.login-form button:hover, .signup-form button:hover {
+    background-color: #45a049;
+}
+
+.login-form input:focus, .signup-form input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+.login-form, .signup-form {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.login-form p, .signup-form p {
+    text-align: center;
+}
+
+#signupBtn {
+    color: blue;
+    cursor: pointer;
+}
+.close-btn, .back-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.back-btn {
+    right: auto;
+    left: 15px;
+}
+.signup-form .back-btn {
+    display: block;
+    margin-top: px; /* Space above the back button */
+    text-align: center;
+    font-size: 12px;
+    color: #4CAF50;
+    cursor: pointer;
+}
+
+.signup-form .back-btn:hover {
+    text-decoration: underline;
+}
+.menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar{
+        margin: auto;
+    }
+    .navbar a {
+        display: none; /* Hide links on small screens */
+    }
+
+    .menu-icon {
+        display: block; /* Show menu icon */
+    }
+
+    .navbar.active .menu-icon + a {
+        display: block; /* Show links when active */
+        width: 100%;
+        text-align: center;
+        top: 100%;
+        width: 100%;
+        padding: 1rem 3%;
+    }
+
+    .login-form, .signup-form {
+        width: 70%; /* Adjust form width on small screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar-logo img {
+        height: 30px;
+    }
+
+    .navbar-logo span {
+        font-size: 18px;
+    }
+
+    .login-form, .signup-form {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .navbar-logo img {
+        height: 25px;
+    }
+
+    .navbar-logo span {
+        font-size: 16px;
+    }
+
+    .login-form, .signup-form {
+        width: 90%;
+    }
+}
