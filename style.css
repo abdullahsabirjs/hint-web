@@ -146,24 +146,23 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-    .navbar{
-        margin: auto;
+    .navbar {
+        display: none;
+        flex-direction: column;
+        align-items: start;
     }
+
+    .navbar.open {
+        display: flex;
+    }
+
     .navbar a {
-        display: none; /* Hide links on small screens */
+        display: block;
+        width: 100%;
     }
 
     .menu-icon {
-        display: block; /* Show menu icon */
-    }
-
-    .navbar.active .menu-icon + a {
-        display: block; /* Show links when active */
-        width: 100%;
-        text-align: center;
-        top: 100%;
-        width: 100%;
-        padding: 1rem 3%;
+        display: block;
     }
 
     .login-form, .signup-form {
