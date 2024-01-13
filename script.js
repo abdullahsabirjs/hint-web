@@ -1,48 +1,92 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Login and Signup Form Handling
-    document.getElementById('loginBtn').addEventListener('click', function() {
-        document.getElementById('loginForm').style.display = 'block';
-        document.getElementById('signupForm').style.display = 'none';
-    });
+// Function to open the navigation menu
+function openNav() {
+    document.getElementById("navbar").style.width = "250px";
+}
 
-    document.getElementById('signupBtn').addEventListener('click', function() {
-        document.getElementById('signupForm').style.display = 'block';
-        document.getElementById('loginForm').style.display = 'none';
-    });
+// Function to close the navigation menu
+function closeNav() {
+    document.getElementById("navbar").style.width = "0";
+}
 
-    document.getElementById('closeLoginForm').addEventListener('click', function() {
-        document.getElementById('loginForm').style.display = 'none';
-    });
+// Function to toggle the navigation menu
+function toggleNav() {
+    var nav = document.getElementById("navbar");
+    if (nav.style.width === "250px") {
+        nav.style.width = "0";
+    } else {
+        nav.style.width = "250px";
+    }
+}
 
-    document.getElementById('backToLogin').addEventListener('click', function() {
-        document.getElementById('loginForm').style.display = 'block';
-        document.getElementById('signupForm').style.display = 'none';
-    });
 
-    // Toggle Navbar Functionality
-    var menuIcon = document.querySelector('.menu-icon');
-    var navbar = document.querySelector('.navbar');
-    var navbarLinks = document.querySelectorAll('.navbar a');
+// Function to perform a search
+function searchFunction() {
+    var input = document.getElementById("searchInput");
+    var filter = input.value.toUpperCase();
+    var results = document.getElementsByClassName("searchResult");
 
-    // Function to toggle navbar on small screens
-    function toggleNavbar() {
-        if (navbar.classList.contains('open')) {
-            navbar.classList.remove('open');
+    for (var i = 0; i < results.length; i++) {
+        if (results[i].innerText.toUpperCase().indexOf(filter) > -1) {
+            results[i].style.display = "";
         } else {
-            navbar.classList.add('open');
+            results[i].style.display = "none";
         }
     }
+}
 
-    // Attach event listener to menu icon
-    menuIcon.addEventListener('click', toggleNavbar);
+// Function to show a specific section and handle the blurred background
+function showSection(sectionId) {
+    var sections = document.getElementsByClassName('section');
+    var content = document.querySelector('.content');
 
-    // Additional functionality if required
-    // For example, close navbar when a link is clicked
-    navbarLinks.forEach(function(link) {
-        link.addEventListener('click', function() {
-            if (window.innerWidth < 768) {
-                toggleNavbar();
-            }
-        });
-    });
+    for (var i = 0; i < sections.length; i++) {
+        sections[i].style.display = 'none';
+    }
+
+    var selectedSection = document.getElementById(sectionId);
+    if (selectedSection) {
+        selectedSection.style.display = 'block';
+        if (sectionId === 'login' || sectionId === 'signup') {
+            content.classList.add('blurred-background');
+        } else {
+            content.classList.remove('blurred-background');
+        }
+    }
+    closeNav();
+}
+
+// Event listener for the login form
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    alert("Login form submitted!");
+    // Add login logic here
 });
+
+// Event listener for the signup form
+document.getElementById("signupForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    alert("Signup form submitted!");
+    // Add signup logic here
+});
+
+// Initially display the home section when the page loads
+window.onload = function() {
+    showSection('home');
+};
+function openNav() {
+    document.getElementById("navbar").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("navbar").style.width = "0";
+}
+
+function showSection(sectionId) {
+    const sections = document.querySelectorAll(".section");
+    sections.forEach((section) => {
+        section.style.display = "none";
+    });
+
+    document.getElementById(sectionId).style.display = "block";
+    closeNav();
+}

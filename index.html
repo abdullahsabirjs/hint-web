@@ -3,35 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Web Layout</title>
+    <title>Login and Signup Page</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="menu-icon" onclick="toggleNavbar()">☰</div>
-    <div class="navbar">
-        <div class="navbar-logo">
-            <span>HINT-WEB</span>
+    <header>
+        <div id="logo">Connector</div>
+        <div id="site-name"></div>
+        <div id="search-bar">
+            <input type="text" placeholder="Search...">
+            <button type="submit">Search</button>
         </div>
-        <a href="#home">Home</a>
-        <a href="#code">Code</a>
-        <a href="#about">About</a>
-        <a href="#" id="loginBtn">Login</a>
+    </header>
+    <div id="navbar" class="navbar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="javascript:void(0)" onclick="showSection('home')">Home</a>
+        <a href="javascript:void(0)" onclick="showSection('post')">Post</a>
+        <a href="javascript:void(0)" onclick="showSection('profile')">My Profile</a>
+        <a href="javascript:void(0)" onclick="showSection('login')">Login</a>
+        <a href="javascript:void(0)" onclick="showSection('signup')">Signup</a>
+    </div>
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+    <div class="section" id="home" style="display: block;">
+        <h1>Welcome to the coonector</h1>
+        <div id="home-image">[Image Placeholder]</div>
+        <p>Welcome to our site where you can explore exciting posts and create your profile.</p>
     </div>
 
-    <div class="login-form" id="loginForm">
-        <span class="close-btn" id="closeLoginForm">&times;</span>
-        <input type="text" placeholder="Username">
-        <input type="password" placeholder="Password">
-        <button>Login</button>
-        <p>Not a member? <span id="signupBtn">Signup</span></p>
+    <div class="section" id="post">
+        <!-- Post content here -->
     </div>
 
-    <div class="signup-form" id="signupForm">
-        <input type="text" placeholder="Username">
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Password">
-        <button>Signup</button>
-        <span class="back-btn" id="backToLogin">← Back</span>
+    <div class="section" id="profile">
+        <!-- Profile content here -->
+    </div>
+
+    <div class="form-container section" id="login" style="display: none;">
+        <h2>Login</h2>
+        <form>
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+            <p>Don't have an account? <a href="javascript:void(0)" onclick="showSection('signup')">Sign up</a></p>
+        </form>
+    </div>
+
+    <div class="form-container section" id="signup" style="display: none;">
+        <h2>Signup</h2>
+        <form>
+            <input type="text" placeholder="Username" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Signup</button>
+            <p>Already have an account? <a href="javascript:void(0)" onclick="showSection('login')">Login</a></p>
+        </form>
     </div>
 
     <script src="script.js"></script>
