@@ -121,3 +121,76 @@ signIn.addEventListener('click', ()=>{
     loginIn.classList.toggle('block')
     loginUp.classList.toggle('none')
 })
+// Function to post a question from the profile section
+function postProfileQuestion() {
+    // Get the question input field value
+    var question = document.getElementById("profile-question-input").value;
+
+    // Check if the question is not empty
+    if (question.trim() !== "") {
+        // Create a new question element
+        var questionElement = document.createElement("div");
+        questionElement.className = "question";
+        questionElement.innerHTML = '<p>' + question + '</p>';
+
+        // Append the question to the Q/A section
+        var qaSection = document.getElementById("qa-section");
+        qaSection.appendChild(questionElement);
+
+        // Clear the question input field
+        document.getElementById("profile-question-input").value = "";
+    }
+}
+// Function to post a question from the profile section
+function postProfileQuestion() {
+    // Get the question input field value
+    var question = document.getElementById("profile-question-input").value;
+
+    // Get the username (you can replace this with the actual username)
+    var username = "JohnDoe"; // Replace with the user's actual username
+
+    // Check if the question is not empty
+    if (question.trim() !== "") {
+        // Create a new question element with username
+        var questionElement = document.createElement("div");
+        questionElement.className = "question";
+        questionElement.innerHTML = '<p><strong>' + username + ':</strong> ' + question + '</p>';
+
+        // Create a place for answering questions
+        var answerElement = document.createElement("div");
+        answerElement.className = "answer";
+        answerElement.innerHTML = '<input type="text" id="answer-input" placeholder="Your Answer" required>' +
+                                  '<button onclick="postAnswer(this)">Post Answer</button>';
+
+        // Append the question and answer elements to the Q/A section
+        var qaSection = document.getElementById("qa-section");
+        qaSection.appendChild(questionElement);
+        qaSection.appendChild(answerElement);
+
+        // Clear the question input field
+        document.getElementById("profile-question-input").value = "";
+    }
+}
+
+// Function to post an answer to a question
+function postAnswer(button) {
+    // Get the answer input field value
+    var answer = button.previousElementSibling.value;
+
+    // Get the username (you can replace this with the actual username)
+    var username = "JohnDoe"; // Replace with the user's actual username
+
+    // Check if the answer is not empty
+    if (answer.trim() !== "") {
+        // Create a new answer element with username
+        var answerElement = document.createElement("div");
+        answerElement.className = "answer";
+        answerElement.innerHTML = '<p><strong>' + username + ':</strong> ' + answer + '</p>';
+
+        // Append the answer element after the question
+        button.parentNode.parentNode.insertBefore(answerElement, button.parentNode);
+
+        // Clear the answer input field
+        button.previousElementSibling.value = "";
+    }
+}

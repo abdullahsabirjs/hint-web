@@ -20,9 +20,9 @@
     <div class="navbar" id="navbar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav(); openNav()">&times;</a>
         <a href="javascript:void(0)" onclick="showSection('home')">Home</a>
-        <a href="javascript:void(0)" onclick="showSection('post')">Post</a>
+        <a href="javascript:void(0)" onclick="showSection('qa')">Q/A</a>
         <a href="javascript:void(0)" onclick="showSection('profile')">My Profile</a>
-        <a href="javascript:void(0)" onclick="showSection('login')">Signin</a>
+        <a href="javascript:void(0)" onclick="showSection('login')">Sign-in</a>
     </div>
     <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 
@@ -34,15 +34,34 @@
                 fellow coders. It's the go-to place for solving coding challenges,  gaining insights, <br> and collaborating
                 with experts. Join us to dive into the world of coding knowledge!"</p>
         </div>
-
-        <div class="section" id="post">
-            <!-- Post content here -->
-        </div>
-
-        <div class="section" id="profile">
-            <!-- Profile content here -->
-        </div>
+       
+       <!-- Profile Section -->
+<div class="section" id="profile">
+    <!-- Profile content here -->
+    <h2>My Profile</h2>
+    <div class="profile-info">
+        <!-- Display Username and Email -->
+        <h3 id="username">Username</h3>
+        <p id="email">Email: user@example.com</p>
+        <div id="notification-counter" class="notification-counter">0</div>
+        <!-- Form to Post a Question -->
+        <form id="post-question-form">
+            <input type="text" id="profile-question-input" placeholder="Ask a question..." required>
+            <button type="submit" onclick="postProfileQuestion()">Post</button>
+        </form>
     </div>
+</div>
+
+<!-- Q/A Section -->
+<div class="section" id="qa">
+    <!-- Questions will be displayed here -->
+    <h2>Q/A Section</h2>
+    <div class="qa-section" id="qa-section">
+        <!-- Questions and Answers will be displayed here -->
+    </div>
+</div>
+
+
     <!-- login/sighup -->
     <div class="login">
         <div class="login__content">

@@ -127,6 +127,146 @@ header {
   transform: scale(1.1); /* Enlarge the image slightly on hover */
 }
 
+#profile {
+  color: var(--first-color-dark);
+  background-color: var(--first-color-lighten);
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+#profile h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.profile-info img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.profile-info h3 {
+  font-size: 1.5rem;
+  color: var(--first-color);
+}
+
+.profile-info p {
+  font-size: var(--normal-font-size);
+  color: var(--first-color-dark);
+}
+
+@media screen and (max-width: 600px) {
+  .profile-info {
+      flex-direction: column;
+  }
+}
+
+#post {
+  background-color: var(--first-color-lighten);
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+#post h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+#post-question-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#post-question-form input,
+#post-question-form textarea {
+  padding: 10px;
+  border: 1px solid var(--first-color-dark);
+  border-radius: 5px;
+  font-size: var(--normal-font-size);
+}
+
+#post-question-form button {
+  background-color: var(--first-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#post-question-form button:hover {
+  background-color: var(--first-color-dark);
+}
+
+@media screen and (max-width: 600px) {
+  #post-question-form {
+      width: 100%;
+  }
+}
+
+/* Styling for the Q/A Section */
+.qa-section {
+  padding: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+}
+
+/* Styling for Questions */
+.question {
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+/* Styling for Answers */
+.answer {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-top: 10px;
+}
+
+/* Styling for Answer Input */
+.answer input[type="text"] {
+  width: 80%;
+  padding: 5px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+}
+
+/* Styling for Post Answer Button */
+.answer button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+/* Styling for Notification Counter */
+#notification-counter {
+  background-color: red;
+  color: #fff;
+  border-radius: 50%;
+  padding: 5px 8px;
+  font-size: 12px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: none;
+}
+
 /*===== LOGIN =====*/
 .login{
     display: grid;
