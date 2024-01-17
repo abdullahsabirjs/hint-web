@@ -6,11 +6,6 @@
 }
 
 :root {
-    --primary-color: #6c757d; /* a unique shade of gray */
-    --secondary-color: #ffc107; /* a warm yellow */
-    --text-color: #495057; /* a dark gray */
-    --background-color: #84afda; /* a light gray background */
-
     --first-color: #9D4BFF;
     --first-color-dark: #23004D;
     --first-color-light: #A49EAC;
@@ -34,7 +29,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: var(--background-color);
+    background-color: var(--first-color);
 }
 
 header {
@@ -42,7 +37,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color:var(--primary-color);
+    background-color:var(--first-color-dark);
     color: white;
 }
 
@@ -66,14 +61,14 @@ header {
 
 #search-bar button {
     padding: 5px 10px;
-    background-color:var(--secondary-color);
-    color:var(--text-color);
+    background-color:var(--first-color-light);
+    color:black;
     border: none;
     cursor: pointer;
 }
 
 #search-bar button:hover {
-    background-color: var(--background-color);
+    background-color: var(--first-color-lighten);
 }
 
 .navbar {
@@ -83,7 +78,7 @@ header {
     z-index: 1000;
     top: 0;
     left: 0;
-    background-color:var(--primary-color);
+    background-color:var(--first-color-light);
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -99,7 +94,7 @@ header {
 }
 
 .navbar a:hover {
-    color: var(--text-color);
+    color: var(--first-color-dark);
 }
 
 .navbar .closebtn {
@@ -109,6 +104,29 @@ header {
     font-size: 36px;
     margin-left: 50px;
 }
+
+/* home */
+.content #home p {
+  font-size: 26px; /* Adjust the font size as needed */
+  color: black; /* Set the text color */
+  margin-top: 10px;
+}
+
+/* Style for the image */
+.content #home img {
+  max-width: 300px;
+  height: 300px;
+  border: 2px solid #ddd; /* Add a 2px solid border with a light gray color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow */
+  transition: transform 0.3s ease-in-out; /* Add a smooth transform animation */
+  margin-top: 20px;
+}
+
+/* Hover effect for the image */
+.content #home img:hover {
+  transform: scale(1.1); /* Enlarge the image slightly on hover */
+}
+
 /*===== LOGIN =====*/
 .login{
     display: grid;

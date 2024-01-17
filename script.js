@@ -1,4 +1,3 @@
-// Function to open the navigation menu
 function openNav() {
     document.getElementById("navbar").style.width = "250px";
 }
@@ -17,7 +16,6 @@ function toggleNav() {
         nav.style.width = "250px";
     }
 }
-
 document.addEventListener('DOMContentLoaded', function() {
     // Function to show a specific section and hide others
     function showSection(sectionId) {
@@ -34,20 +32,69 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // Function to open the navigation menu
+    function openNav() {
+        document.getElementById("navbar").style.width = "250px";
+    }
+
+    // Function to close the navigation menu
+    function closeNav() {
+        document.getElementById("navbar").style.width = "0";
+    }
+
+    // Function to toggle the navigation menu
+    function toggleNav() {
+        var nav = document.getElementById("navbar");
+        if (nav.style.width === "250px") {
+            nav.style.width = "0";
+        } else {
+            nav.style.width = "250px";
+        }
+    }
+
     // Get the login form and initially hide it
     var loginForm = document.querySelector('.login');
     loginForm.style.display = 'none';
 
-    // Function to toggle the display of the login form
-    var signinLink = document.querySelector("a[onclick*='showSection(\\'login\\')']");
-    signinLink.addEventListener('click', function(event) {
+    // Get all option buttons and add event listeners
+    var optionButtons = document.querySelectorAll('.navbar a');
+    optionButtons.forEach(function(button) {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            var sectionId = button.getAttribute('onclick').match(/\('([^']+)'\)/)[1];
+            showSection(sectionId);
+
+            // Close the navigation menu
+            closeNav();
+
+            // Hide the signin form
+            loginForm.style.display = 'none';
+        });
+    });
+
+    // Get the signin button and add an event listener
+    var signinButton = document.querySelector('.navbar a[onclick*="showSection(\'login\')"]');
+    signinButton.addEventListener('click', function(event) {
         event.preventDefault();
-        showSection('login'); // This will show the login section and hide others
-        loginForm.style.display = loginForm.style.display === 'none' ? 'block' : 'none';
+        showSection('login');
+
+        // Show the signin form
+        loginForm.style.display = 'block';
+    });
+
+    // Get the close button inside the signin form and add an event listener
+    var closeSigninButton = document.querySelector('.login a[onclick*="closeNav()"]');
+    closeSigninButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        loginForm.style.display = 'none';
+    });
+
+    // Get the toggle button for the navigation menu
+    var toggleButton = document.querySelector('.navbar span');
+    toggleButton.addEventListener('click', function() {
+        toggleNav();
     });
 });
-
-
 /*===== LOGIN SHOW and HIDDEN =====*/
 const signUp = document.getElementById('sign-up'),
     signIn = document.getElementById('sign-in'),
