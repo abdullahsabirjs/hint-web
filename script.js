@@ -18,75 +18,59 @@ function toggleNav() {
     }
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to show a specific section and hide others
+    function showSection(sectionId) {
+        // Hide all sections
+        var sections = document.querySelectorAll('.section');
+        sections.forEach(function(section) {
+            section.style.display = 'none';
+        });
 
-// Function to perform a search
-function searchFunction() {
-    var input = document.getElementById("searchInput");
-    var filter = input.value.toUpperCase();
-    var results = document.getElementsByClassName("searchResult");
-
-    for (var i = 0; i < results.length; i++) {
-        if (results[i].innerText.toUpperCase().indexOf(filter) > -1) {
-            results[i].style.display = "";
-        } else {
-            results[i].style.display = "none";
+        // Show the specified section
+        var selectedSection = document.getElementById(sectionId);
+        if (selectedSection) {
+            selectedSection.style.display = 'block';
         }
     }
-}
 
-// Function to show a specific section and handle the blurred background
-function showSection(sectionId) {
-    var sections = document.getElementsByClassName('section');
-    var content = document.querySelector('.content');
+    // Get the login form and initially hide it
+    var loginForm = document.querySelector('.login');
+    loginForm.style.display = 'none';
 
-    for (var i = 0; i < sections.length; i++) {
-        sections[i].style.display = 'none';
-    }
-
-    var selectedSection = document.getElementById(sectionId);
-    if (selectedSection) {
-        selectedSection.style.display = 'block';
-        if (sectionId === 'login' || sectionId === 'signup') {
-            content.classList.add('blurred-background');
-        } else {
-            content.classList.remove('blurred-background');
-        }
-    }
-    closeNav();
-}
-
-// Event listener for the login form
-document.getElementById("loginForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    alert("Login form submitted!");
-    // Add login logic here
-});
-
-// Event listener for the signup form
-document.getElementById("signupForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    alert("Signup form submitted!");
-    // Add signup logic here
-});
-
-// Initially display the home section when the page loads
-window.onload = function() {
-    showSection('home');
-};
-function openNav() {
-    document.getElementById("navbar").style.width = "250px";
-}
-
-function closeNav() {
-    document.getElementById("navbar").style.width = "0";
-}
-
-function showSection(sectionId) {
-    const sections = document.querySelectorAll(".section");
-    sections.forEach((section) => {
-        section.style.display = "none";
+    // Function to toggle the display of the login form
+    var signinLink = document.querySelector("a[onclick*='showSection(\\'login\\')']");
+    signinLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        showSection('login'); // This will show the login section and hide others
+        loginForm.style.display = loginForm.style.display === 'none' ? 'block' : 'none';
     });
+});
 
-    document.getElementById(sectionId).style.display = "block";
-    closeNav();
-}
+
+/*===== LOGIN SHOW and HIDDEN =====*/
+const signUp = document.getElementById('sign-up'),
+    signIn = document.getElementById('sign-in'),
+    loginIn = document.getElementById('login-in'),
+    loginUp = document.getElementById('login-up')
+
+
+signUp.addEventListener('click', ()=>{
+    // Remove classes first if they exist
+    loginIn.classList.remove('block')
+    loginUp.classList.remove('none')
+
+    // Add classes
+    loginIn.classList.toggle('none')
+    loginUp.classList.toggle('block')
+})
+
+signIn.addEventListener('click', ()=>{
+    // Remove classes first if they exist
+    loginIn.classList.remove('none')
+    loginUp.classList.remove('block')
+
+    // Add classes
+    loginIn.classList.toggle('block')
+    loginUp.classList.toggle('none')
+})

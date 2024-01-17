@@ -9,56 +9,104 @@
 <body>
     <header>
         <div id="logo">Connector</div>
-        <div id="site-name"></div>
         <div id="search-bar">
             <input type="text" placeholder="Search...">
             <button type="submit">Search</button>
         </div>
     </header>
-    <div id="navbar" class="navbar">
+
+    <div class="navbar" id="navbar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="javascript:void(0)" onclick="showSection('home')">Home</a>
         <a href="javascript:void(0)" onclick="showSection('post')">Post</a>
         <a href="javascript:void(0)" onclick="showSection('profile')">My Profile</a>
-        <a href="javascript:void(0)" onclick="showSection('login')">Login</a>
-        <a href="javascript:void(0)" onclick="showSection('signup')">Signup</a>
+        <a href="javascript:void(0)" onclick="showSection('login')">Signin</a>
     </div>
-    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
-    <div class="section" id="home" style="display: block;">
-        <h1>Welcome to the coonector</h1>
-        <div id="home-image">[Image Placeholder]</div>
-        <p>Welcome to our site where you can explore exciting posts and create your profile.</p>
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
+    <div class="content">
+        <div class="section" id="home" style="display: block;">
+            <h1>Welcome to Connector</h1>
+            <div id="home-image">[Image Placeholder]</div>
+            <p>Welcome to our site where you can explore exciting posts and create your profile.</p>
+        </div>
+
+        <div class="section" id="post">
+            <!-- Post content here -->
+        </div>
+
+        <div class="section" id="profile">
+            <!-- Profile content here -->
+        </div>
+    </div>
+    <!-- login/sighup -->
+    <div class="login">
+        <div class="login__content">
+            <div class="login__img">
+                <img src="media/connector..png" alt="">
+            </div>
+
+            <div class="login__forms">
+                <form action="" class="login__registre" id="login-in">
+                    <h1 class="login__title">Sign In</h1>
+
+                    <div class="login__box">
+                        <i class='bx bx-user login__icon'></i>
+                        <input type="text" placeholder="Username" class="login__input">
+                    </div>
+
+                    <div class="login__box">
+                        <i class='bx bx-lock-alt login__icon'></i>
+                        <input type="password" placeholder="Password" class="login__input">
+                    </div>
+
+                    <a href="#" class="login__forgot">Forgot password?</a>
+
+                    <a href="#" class="login__button">Sign In</a>
+
+                    <div>
+                        <span class="login__account">Don't have an Account ?</span>
+                        <span class="login__signin" id="sign-up">Sign Up</span>
+                    </div>
+                </form>
+
+                <form action="" class="login__create none" id="login-up">
+                    <h1 class="login__title">Create Account</h1>
+
+                    <div class="login__box">
+                        <i class='bx bx-user login__icon'></i>
+                        <input type="text" placeholder="Username" class="login__input">
+                    </div>
+
+                    <div class="login__box">
+                        <i class='bx bx-at login__icon'></i>
+                        <input type="text" placeholder="Email" class="login__input">
+                    </div>
+
+                    <div class="login__box">
+                        <i class='bx bx-lock-alt login__icon'></i>
+                        <input type="password" placeholder="Password" class="login__input">
+                    </div>
+
+                    <a href="#" class="login__button">Sign Up</a>
+
+                    <div>
+                        <span class="login__account">Already have an Account ?</span>
+                        <span class="login__signup" id="sign-in">Sign In</span>
+                    </div>
+
+                    <div class="login__social">
+                        <a href="#" class="login__social-icon"><i class='bx bxl-facebook' ></i></a>
+                        <a href="#" class="login__social-icon"><i class='bx bxl-twitter' ></i></a>
+                        <a href="#" class="login__social-icon"><i class='bx bxl-google' ></i></a>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 
-    <div class="section" id="post">
-        <!-- Post content here -->
-    </div>
 
-    <div class="section" id="profile">
-        <!-- Profile content here -->
-    </div>
 
-    <div class="form-container section" id="login" style="display: none;">
-        <h2>Login</h2>
-        <form>
-            <input type="text" placeholder="Username" required>
-            <input type="password" placeholder="Password" required>
-            <button type="submit">Login</button>
-            <p>Don't have an account? <a href="javascript:void(0)" onclick="showSection('signup')">Sign up</a></p>
-        </form>
-    </div>
-
-    <div class="form-container section" id="signup" style="display: none;">
-        <h2>Signup</h2>
-        <form>
-            <input type="text" placeholder="Username" required>
-            <input type="email" placeholder="Email" required>
-            <input type="password" placeholder="Password" required>
-            <button type="submit">Signup</button>
-            <p>Already have an account? <a href="javascript:void(0)" onclick="showSection('login')">Login</a></p>
-        </form>
-    </div>
-
-    <script src="script.js"></script>
+      <script src="script.js"></script>
 </body>
 </html>
